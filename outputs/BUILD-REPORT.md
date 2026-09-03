@@ -1,11 +1,11 @@
-# PA Helper V1 — Build Report
+# PA Helper V1.1 — Build Report
 
 Built 2026-09-03 on local branch `main`.
 
 ## Delivered
 
 - Mobile-first Waunakee soundboard with dark/purple visual system
-- Twelve short, normalized, mono sound effects
+- Twelve short, normalized sound effects made from genuine recordings
 - Favorites, categories, master volume, persistent Stop All, and clear playing/progress state
 - Strict one-at-a-time playback with serialized click-prevention fades
 - First-tap audio unlock and quiet test chime
@@ -21,7 +21,7 @@ Built 2026-09-03 on local branch `main`.
 - 12/12 audio files decoded in the browser
 - Every shipped audio file appears in the service-worker pack and license ledger
 - Every final audio SHA-256 matches the ledger
-- Every clip is shorter than ten seconds; total shipped audio is approximately 536 KB
+- Every clip is shorter than ten seconds
 - JavaScript syntax checks passed
 - Mobile layouts inspected at 320, 390, and 430 CSS pixels
 - No horizontal overflow at 320px
@@ -33,10 +33,10 @@ Built 2026-09-03 on local branch `main`.
 
 ## Audio provenance
 
-- `Applause`: Amada44, CC0 1.0, sourced from Wikimedia Commons and edited
-- `Big Cheer`: starlite, public-domain release, sourced from Wikimedia Commons and edited
-- Ten remaining effects: procedurally generated specifically for PA Helper and dedicated to CC0 to the extent rights exist
-- The Coin Chime is independently synthesized and contains no Nintendo/Mario recording or sample
+- All twelve cues are derived from documented CC0 recordings of physical horns, bells, whistles, crowds, human voices, trumpet, drums, cymbal, applause, or glockenspiel.
+- Source encodes, asset pages, CC0 legal text, source/final hashes, and reproducible edit instructions are preserved locally.
+- `Warriors Win`, `Hype Hit`, and `Coin Chime` layer two genuine recordings; the remaining replacements use a single recording each.
+- The Coin Chime uses physical glockenspiel strikes and contains no Nintendo/Mario recording, composition, or sample.
 
 ## Physical checks still required
 

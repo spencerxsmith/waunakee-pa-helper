@@ -37,6 +37,6 @@ Import `spencerxsmith/waunakee-pa-helper`, choose the **Other** framework preset
 
 ## Audio licensing
 
-See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) and `licenses/audio-ledger.csv`. Every shipped clip has a source, exact license, creator, modification record, evidence, and SHA-256 checksum. Original source recordings/WAVs are preserved under `assets/audio/originals/`.
+See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) and `licenses/audio-ledger.csv`. Every shipped clip has a source, exact license, creator, modification record, evidence, and SHA-256 checksum. Downloaded source encodes are preserved under `assets/audio/sources/`; the applause source remains under `assets/audio/originals/`.
 
-The generic Coin Chime was synthesized for this project. No Nintendo or Mario recording, composition, name, or asset is used.
+All twelve shipped cues are based on genuine recordings. The generic Coin Chime uses two physical glockenspiel strikes; no Nintendo or Mario recording, composition, name, or asset is used.

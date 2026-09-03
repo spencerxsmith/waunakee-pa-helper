@@ -1,5 +1,5 @@
-const APP_CACHE = "pa-helper-app-v1.0.3";
-const AUDIO_CACHE = "pa-helper-audio-v1.0.0";
+const APP_CACHE = "pa-helper-app-v1.1.0";
+const AUDIO_CACHE = "pa-helper-audio-v1.1.0";
 const APP_SHELL = [
   "./", "./index.html", "./css/app.css", "./js/app.js", "./js/audio-engine.js",
   "./data/sounds.json", "./manifest.webmanifest", "./icons/icon.svg",

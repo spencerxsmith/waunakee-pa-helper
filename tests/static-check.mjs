@@ -55,10 +55,19 @@ for (const script of ["js/app.js", "js/audio-engine.js"]) {
   else pass(`${script} parses`);
 }
 
+const evidenceSlugs = [
+  "industrial-air-horn", "airhorn-short", "solenoid-bell", "metal-whistle",
+  "crowd-cheer-5", "distant-cheer", "group-gasp", "clean-trumpet-fanfare",
+  "acoustic-kick", "zildjian-cymbal", "snare-roll-crash",
+  "glockenspiel-f-sharp", "glockenspiel-g-sharp"
+];
 for (const evidence of [
   "licenses/evidence/applause-concert/asset-page.html",
   "licenses/evidence/applause-concert/cc0-1.0-legalcode.html",
-  "licenses/evidence/clapping-hurray/asset-page.html"
+  ...evidenceSlugs.flatMap(slug => [
+    `licenses/evidence/${slug}/asset-page.html`,
+    `licenses/evidence/${slug}/cc0-1.0-legalcode.html`
+  ])
 ]) existsSync(resolve(root, evidence)) ? pass(evidence) : fail(`Missing license evidence: ${evidence}`);
 
 if (failures.length) {

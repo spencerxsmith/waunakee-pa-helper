@@ -1,17 +1,17 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "sounds": [
-    {"id":"goal-horn","name":"Goal Horn","subtitle":"Full celebration","category":"match","icon":"horn","file":"public/audio/goal-horn.mp3","duration":4.2,"defaultFavorite":true},
-    {"id":"goal-burst","name":"Goal Burst","subtitle":"Quick hit","category":"match","icon":"burst","file":"public/audio/goal-burst.mp3","duration":1.65},
-    {"id":"final-buzzer","name":"Final Buzzer","subtitle":"Authorized use only","category":"match","icon":"buzzer","file":"public/audio/final-buzzer.mp3","duration":1.25,"caution":true},
+    {"id":"goal-horn","name":"Goal Horn","subtitle":"Real industrial air horn","category":"match","icon":"horn","file":"public/audio/goal-horn.mp3","duration":2.571,"defaultFavorite":true},
+    {"id":"goal-burst","name":"Goal Burst","subtitle":"Real short air horn","category":"match","icon":"burst","file":"public/audio/goal-burst.mp3","duration":1.67},
+    {"id":"final-buzzer","name":"Final Buzzer","subtitle":"Real bell · authorized use only","category":"match","icon":"buzzer","file":"public/audio/final-buzzer.mp3","duration":2.72,"caution":true},
     {"id":"whistle","name":"Whistle","subtitle":"Authorized use only","category":"match","icon":"whistle","file":"public/audio/whistle.mp3","duration":0.72,"caution":true},
-    {"id":"big-cheer","name":"Big Cheer","subtitle":"Crowd celebration","category":"crowd","icon":"cheer","file":"public/audio/big-cheer.mp3","duration":5.19},
+    {"id":"big-cheer","name":"Big Cheer","subtitle":"Friday night crowd","category":"crowd","icon":"cheer","file":"public/audio/big-cheer.mp3","duration":5.2},
     {"id":"applause","name":"Applause","subtitle":"Recognition","category":"crowd","icon":"applause","file":"public/audio/applause.mp3","duration":5,"defaultFavorite":true},
-    {"id":"crowd-rise","name":"Crowd Rise","subtitle":"Build the moment","category":"crowd","icon":"rise","file":"public/audio/crowd-rise.mp3","duration":3.2},
-    {"id":"aw-so-close","name":"Aw, So Close","subtitle":"Near miss","category":"crowd","icon":"close","file":"public/audio/aw-so-close.mp3","duration":1.55},
-    {"id":"warriors-win","name":"Warriors Win","subtitle":"Triumphant stinger","category":"stingers","icon":"trophy","file":"public/audio/warriors-win.mp3","duration":4.1,"defaultFavorite":true},
-    {"id":"hype-hit","name":"Hype Hit","subtitle":"Punchy transition","category":"stingers","icon":"hype","file":"public/audio/hype-hit.mp3","duration":1.8},
-    {"id":"drum-charge","name":"Drum Charge","subtitle":"Rally the crowd","category":"stingers","icon":"drum","file":"public/audio/drum-charge.mp3","duration":2.5},
-    {"id":"coin-chime","name":"Coin Chime","subtitle":"8-bit reward","category":"stingers","icon":"coin","file":"public/audio/coin-chime.mp3","duration":0.62}
+    {"id":"crowd-rise","name":"Crowd Rise","subtitle":"Real distant crowd swell","category":"crowd","icon":"rise","file":"public/audio/crowd-rise.mp3","duration":4},
+    {"id":"aw-so-close","name":"Aw, So Close","subtitle":"Human group reaction","category":"crowd","icon":"close","file":"public/audio/aw-so-close.mp3","duration":1.602},
+    {"id":"warriors-win","name":"Warriors Win","subtitle":"Real trumpet and cymbal","category":"stingers","icon":"trophy","file":"public/audio/warriors-win.mp3","duration":5.5,"defaultFavorite":true},
+    {"id":"hype-hit","name":"Hype Hit","subtitle":"Real kick and cymbal","category":"stingers","icon":"hype","file":"public/audio/hype-hit.mp3","duration":2},
+    {"id":"drum-charge","name":"Drum Charge","subtitle":"Real snare and crash","category":"stingers","icon":"drum","file":"public/audio/drum-charge.mp3","duration":4},
+    {"id":"coin-chime","name":"Coin Chime","subtitle":"Real glockenspiel cue","category":"stingers","icon":"coin","file":"public/audio/coin-chime.mp3","duration":1.59}
   ]
 }

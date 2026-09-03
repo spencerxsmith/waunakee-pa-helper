@@ -1,6 +1,6 @@
 import { AudioEngine } from "./audio-engine.js";
 
-const APP_VERSION = "1.0.0";
+const APP_VERSION = "1.1.0";
 const FAVORITES_KEY = "pa-helper-favorites-v1";
 const VOLUME_KEY = "pa-helper-volume-v1";
 const HAPTICS_KEY = "pa-helper-haptics-v1";
