@@ -3,7 +3,7 @@
 PA Helper uses edited recordings of real-world horns, bells, whistles, crowds, voices, and musical instruments. Every source below is offered under the [Creative Commons CC0 1.0 Universal Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0/). Attribution is not legally required; these credits are included voluntarily. No creator or source platform endorses PA Helper.
 
 - **Goal Horn:** [“Industrial Air Horn”](https://freesound.org/people/mcpable/sounds/131930/) by mcpable.
-- **Goal Burst:** [“airhorn-short.wav”](https://freesound.org/people/guitarguy1985/sounds/68999/) by guitarguy1985.
+- **Goal Siren:** [“Hand cranked siren.wav”](https://freesound.org/people/mikewest/sounds/239498/) by mikewest; a field recording of a siren used by rural fire brigades.
 - **Final Buzzer:** [“School Bell - Fire Bell.wav”](https://freesound.org/people/Dave%20Welsh/sounds/523317/) by Dave Welsh; a recorded solenoid-striker bell.
 - **Whistle:** [“metal whistle.wav”](https://freesound.org/people/strongbot/sounds/568995/) by strongbot.
 - **Big Cheer:** [“Crowd Cheer 5”](https://freesound.org/people/Krizin/sounds/651646/) by Krizin.

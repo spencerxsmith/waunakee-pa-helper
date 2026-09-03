@@ -7,7 +7,7 @@ All Freesound sources below are marked **Creative Commons CC0 1.0** on their ind
 | Source slug | Sound(s) served | Creator | Asset page | Downloaded source SHA-256 | Evidence directory |
 |---|---|---|---|---|---|
 | industrial-air-horn | Goal Horn | mcpable | https://freesound.org/people/mcpable/sounds/131930/ | `a73670ddeee9bed590c19a928715a4ed866893992c849261d7acbc37e8966a9a` | `licenses/evidence/industrial-air-horn/` |
-| airhorn-short | Goal Burst | guitarguy1985 | https://freesound.org/people/guitarguy1985/sounds/68999/ | `923e16986a490bc397bce1f996133110fff5be993a8807f1569d101637e7a0a2` | `licenses/evidence/airhorn-short/` |
+| hand-cranked-siren | Goal Siren | mikewest | https://freesound.org/people/mikewest/sounds/239498/ | `795975275a84720a4676c675e5c1e264673068a140d644f9f3e987c7f6c30f15` | `licenses/evidence/hand-cranked-siren/` |
 | solenoid-bell | Final Buzzer | Dave Welsh | https://freesound.org/people/Dave%20Welsh/sounds/523317/ | `f9954e2b745033e95e1f2d2aad006ec94ae490c2b536a19fe3d77f3f171b72bf` | `licenses/evidence/solenoid-bell/` |
 | metal-whistle | Whistle | strongbot | https://freesound.org/people/strongbot/sounds/568995/ | `f2a730ed5678fa0958a291fe934b5c1dda0324a9324a92da845932a3bba67812` | `licenses/evidence/metal-whistle/` |
 | crowd-cheer-5 | Big Cheer | Krizin | https://freesound.org/people/Krizin/sounds/651646/ | `417e0bcc7d22a6e3c2906ad53df5b373fcd950920834950c1cfa586b16249e8d` | `licenses/evidence/crowd-cheer-5/` |
@@ -25,7 +25,7 @@ All Freesound sources below are marked **Creative Commons CC0 1.0** on their ind
 `work/process_genuine_sounds.sh` is the reproducible edit recipe. Work is limited to selection/trimming, short fades, conservative loudness normalization, MP3 encoding, and—in three cases—layering two real recordings. No synthesized tone generator is used.
 
 - Goal Horn: complete 2.571-second horn; target -13 LUFS / -1 dBTP.
-- Goal Burst: 1.67 seconds of the short air horn; target -13 LUFS / -1 dBTP.
+- Goal Siren: four-second excerpt beginning exactly 3.0 seconds into the hand-cranked siren recording; target -13 LUFS / -1 dBTP.
 - Final Buzzer: 2.72 seconds from the solenoid-striker bell; target -14 LUFS / -1 dBTP.
 - Whistle: one 0.72-second physical whistle blast; target -17 LUFS / -2 dBTP to reduce PA harshness.
 - Big Cheer: 5.2 seconds; natural stereo retained; target -15 LUFS / -1 dBTP.

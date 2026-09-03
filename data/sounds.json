@@ -1,8 +1,8 @@
 {
-  "version": "1.2.1",
+  "version": "1.3.0",
   "sounds": [
     {"id":"goal-horn","name":"Goal Horn","subtitle":"Real industrial air horn","category":"match","icon":"horn","file":"public/audio/goal-horn.mp3","duration":2.571,"defaultFavorite":true},
-    {"id":"goal-burst","name":"Goal Burst","subtitle":"Real short air horn","category":"match","icon":"burst","file":"public/audio/goal-burst.mp3","duration":1.67},
+    {"id":"goal-burst","name":"Goal Siren","subtitle":"Real hand-cranked siren","category":"match","icon":"burst","file":"public/audio/goal-burst.mp3","duration":4},
     {"id":"final-buzzer","name":"Final Buzzer","subtitle":"Real bell · authorized use only","category":"match","icon":"buzzer","file":"public/audio/final-buzzer.mp3","duration":2.72,"caution":true},
     {"id":"whistle","name":"Whistle","subtitle":"Authorized use only","category":"match","icon":"whistle","file":"public/audio/whistle.mp3","duration":0.72,"caution":true},
     {"id":"big-cheer","name":"Big Cheer","subtitle":"Friday night crowd","category":"crowd","icon":"cheer","file":"public/audio/big-cheer.mp3","duration":5.2},

@@ -10,8 +10,8 @@ ffmpeg -v error -y -i "$SRC/industrial-air-horn-hq-preview.mp3" \
   -af "atrim=0:2.571,asetpts=PTS-STARTPTS,afade=t=in:st=0:d=0.01,afade=t=out:st=2.321:d=0.25,loudnorm=I=-13:LRA=7:TP=-1" \
   "${ENC[@]}" "$OUT/goal-horn.mp3"
 
-ffmpeg -v error -y -ss 0.18 -t 1.67 -i "$SRC/airhorn-short-hq-preview.mp3" \
-  -af "afade=t=in:st=0:d=0.01,afade=t=out:st=1.42:d=0.25,loudnorm=I=-13:LRA=7:TP=-1" \
+ffmpeg -v error -y -i "$SRC/hand-cranked-siren-hq-preview.mp3" \
+  -af "atrim=start=3:end=7,asetpts=PTS-STARTPTS,afade=t=in:st=0:d=0.01,afade=t=out:st=3.65:d=0.35,loudnorm=I=-13:LRA=7:TP=-1" \
   "${ENC[@]}" "$OUT/goal-burst.mp3"
 
 ffmpeg -v error -y -ss 1.78 -t 2.72 -i "$SRC/solenoid-bell-hq-preview.mp3" \

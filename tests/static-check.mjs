@@ -59,7 +59,7 @@ for (const script of ["js/app.js", "js/audio-engine.js"]) {
 }
 
 const evidenceSlugs = [
-  "industrial-air-horn", "airhorn-short", "solenoid-bell", "metal-whistle",
+  "industrial-air-horn", "hand-cranked-siren", "solenoid-bell", "metal-whistle",
   "crowd-cheer-5", "distant-cheer", "group-gasp", "clean-trumpet-fanfare",
   "acoustic-kick", "zildjian-cymbal", "snare-roll-crash",
   "glockenspiel-f-sharp", "glockenspiel-g-sharp"
