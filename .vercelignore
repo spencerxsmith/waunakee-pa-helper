@@ -1,0 +1,7 @@
+.git/
+.vercel/
+assets/audio/originals/
+licenses/evidence/
+outputs/
+tests/
+work/
