@@ -50,9 +50,19 @@ export class AudioEngine extends EventTarget {
 
   async unlock() {
     const context = this.ensureContext();
-    if (context.state === "suspended") await context.resume();
-    if (context.state !== "running") throw new Error("Audio is still locked. Tap again or check browser permissions.");
+    if (context.state === "suspended") {
+      const silent = context.createBufferSource();
+      silent.buffer = context.createBuffer(1, 1, 22050);
+      silent.connect(this.master);
+      silent.start(0);
+      await context.resume();
+    }
+    if (context.state !== "running") throw new Error("Sound could not start on this tap.");
     return true;
+  }
+
+  prime() {
+    return this.unlock();
   }
 
   setVolume(value) {

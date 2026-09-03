@@ -1,6 +1,6 @@
 import { AudioEngine } from "./audio-engine.js";
 
-const APP_VERSION = "1.1.0";
+const APP_VERSION = "1.2.1";
 const FAVORITES_KEY = "pa-helper-favorites-v1";
 const VOLUME_KEY = "pa-helper-volume-v1";
 const HAPTICS_KEY = "pa-helper-haptics-v1";
@@ -16,7 +16,7 @@ const $ = id => document.getElementById(id);
 
 let manifest;
 let sounds = [];
-let category = "favorites";
+let category = "all";
 let favorites = new Set();
 let deferredInstallPrompt = null;
 let progressFrame = null;
@@ -30,11 +30,10 @@ function saveLocal(key, value) {
   try { localStorage.setItem(key, JSON.stringify(value)); } catch {}
 }
 
-function setStatus(mode, title, detail, action = false) {
+function setStatus(mode, title, detail) {
   $("statusDot").className = `status-dot ${mode === "ready" ? "ready" : mode === "error" ? "error" : ""}`;
   $("statusTitle").textContent = title;
   $("statusDetail").textContent = detail;
-  $("enableAudio").hidden = !action;
 }
 
 function announce(message) {
@@ -100,12 +99,15 @@ async function playSound(id) {
     if ($("hapticsToggle").checked && navigator.vibrate) navigator.vibrate(18);
     updateDiagnostics();
   } catch (error) {
-    setStatus("error", "Tap to re-enable audio", error.message, true);
-    announce(error.message);
+    setStatus("error", "Sound didn’t start", "Tap the sound again");
+    announce("Sound didn’t start. Tap the sound again.");
   }
 }
 
 function wireSoundGrid() {
+  $("soundGrid").addEventListener("pointerdown", event => {
+    if (event.target.closest("button[data-play]") && typeof engine.prime === "function") engine.prime().catch(() => {});
+  });
   $("soundGrid").addEventListener("click", event => {
     const favorite = event.target.closest("button[data-favorite]");
     if (favorite) { event.stopPropagation(); toggleFavorite(favorite.dataset.favorite); return; }
@@ -151,15 +153,15 @@ async function enableAndTest() {
     setStatus("ready", "Audio ready", navigator.onLine ? "Sound pack prepared for offline use" : "Offline sound pack ready");
     updateDiagnostics();
   } catch (error) {
-    setStatus("error", "Audio needs attention", error.message, true);
-    announce(error.message);
+    setStatus("error", "Test didn’t start", "Tap Test output again");
+    announce("Test didn’t start. Tap Test output again.");
   }
 }
 
 function updateDiagnostics() {
   const complete = sounds.length > 0 && engine.buffers.size === sounds.length && engine.failures.size === 0;
   $("packDiagnostic").textContent = complete ? `${sounds.length}/${sounds.length} ready` : `${engine.buffers.size}/${sounds.length} ready`;
-  $("audioDiagnostic").textContent = engine.context?.state === "running" ? "Enabled" : "Tap to enable";
+  $("audioDiagnostic").textContent = engine.context?.state === "running" ? "Ready" : "Starts on first sound tap";
   $("networkDiagnostic").textContent = navigator.onLine ? "Online" : "Offline";
   $("versionDiagnostic").textContent = `${APP_VERSION} · Pack ${manifest?.version || "—"}`;
   $("readinessPill").textContent = complete ? "Pack ready" : "Needs attention";
@@ -211,7 +213,7 @@ async function prepare({ reload = false } = {}) {
     renderSounds();
     const result = await engine.load(sounds, { cacheBust: reload });
     if (result.failed) setStatus("error", `${result.failed} sound${result.failed === 1 ? "" : "s"} unavailable`, "Open Setup to retry the sound pack");
-    else setStatus("loading", "Sound pack ready", "Tap Enable & test before kickoff", true);
+    else setStatus("ready", "Sound pack ready", navigator.onLine ? "Tap any sound to begin" : "Offline pack ready · tap any sound");
     renderSounds(); updateDiagnostics();
   } catch (error) {
     setStatus("error", "Sound pack unavailable", error.message);
@@ -237,7 +239,6 @@ function init() {
   $("hapticsToggle").addEventListener("change", event => saveLocal(HAPTICS_KEY, event.target.checked));
   $("stopAll").addEventListener("click", () => engine.stop());
   $("nowPlayingStop").addEventListener("click", () => engine.stop());
-  $("enableAudio").addEventListener("click", enableAndTest);
   $("settingsTest").addEventListener("click", enableAndTest);
   $("reloadPack").addEventListener("click", () => prepare({ reload: true }));
   $("openSettings").addEventListener("click", () => showSettings(true));
@@ -247,16 +248,12 @@ function init() {
   engine.addEventListener("stopped", clearPlayingUI);
   engine.addEventListener("contextstate", event => {
     updateDiagnostics();
-    if (event.detail.state === "suspended" && document.visibilityState === "visible") setStatus("error", "Tap to re-enable audio", "The browser suspended the audio engine", true);
   });
   window.addEventListener("online", updateDiagnostics);
   window.addEventListener("offline", updateDiagnostics);
   document.addEventListener("visibilitychange", () => {
     if (document.hidden) engine.stop();
-    else {
-      updateDiagnostics();
-      if (engine.context?.state === "suspended") setStatus("error", "Tap to re-enable audio", "Audio paused while the app was away", true);
-    }
+    else updateDiagnostics();
   });
   registerServiceWorker(); prepare();
 }

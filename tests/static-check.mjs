@@ -22,6 +22,9 @@ if (new Set(manifest.sounds.map(sound => sound.id)).size === manifest.sounds.len
 
 const sw = read("sw.js");
 const ledger = read("licenses/audio-ledger.csv");
+for (const asset of ["css/app.css", "js/app.js", "js/audio-engine.js", "data/sounds.json"]) {
+  if (!sw.includes(`./${asset}?v=${manifest.version}`)) fail(`Service worker does not version ${asset}`);
+}
 const ledgerEntries = new Map();
 for (const line of ledger.trim().split("\n").slice(1)) {
   const match = line.match(/,(public\/audio\/[^,]+),([0-9a-f]{64}),\d{4}-\d{2}-\d{2}$/);
@@ -31,7 +34,7 @@ for (const line of ledger.trim().split("\n").slice(1)) {
 for (const sound of manifest.sounds) {
   const fullPath = resolve(root, sound.file);
   if (!existsSync(fullPath)) { fail(`Missing audio: ${sound.file}`); continue; }
-  if (!sw.includes(`./${sound.file}`)) fail(`Service worker does not precache ${sound.file}`);
+  if (!sw.includes(`./${sound.file}?v=${manifest.version}`)) fail(`Service worker does not version and precache ${sound.file}`);
   const expectedHash = ledgerEntries.get(sound.file);
   const actualHash = createHash("sha256").update(readFileSync(fullPath)).digest("hex");
   if (!expectedHash) fail(`No ledger record for ${sound.file}`);
@@ -43,7 +46,7 @@ for (const sound of manifest.sounds) {
 if (!failures.some(item => item.includes("audio") || item.includes("ledger") || item.includes("Hash") || item.includes("duration"))) pass("all audio files are cached, licensed, hashed, and under 10 seconds");
 
 const html = read("index.html");
-for (const id of ["stopAll", "masterVolume", "enableAudio", "soundGrid", "nowPlaying", "settingsView"]) {
+for (const id of ["stopAll", "masterVolume", "soundGrid", "nowPlaying", "settingsView"]) {
   if (!html.includes(`id="${id}"`)) fail(`Missing required UI control #${id}`);
 }
 if (html.includes("Mario") || html.includes("Nintendo")) fail("Product UI must not use third-party game trademarks");

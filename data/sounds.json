@@ -1,5 +1,5 @@
 {
-  "version": "1.1.0",
+  "version": "1.2.1",
   "sounds": [
     {"id":"goal-horn","name":"Goal Horn","subtitle":"Real industrial air horn","category":"match","icon":"horn","file":"public/audio/goal-horn.mp3","duration":2.571,"defaultFavorite":true},
     {"id":"goal-burst","name":"Goal Burst","subtitle":"Real short air horn","category":"match","icon":"burst","file":"public/audio/goal-burst.mp3","duration":1.67},

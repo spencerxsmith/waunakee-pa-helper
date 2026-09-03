@@ -1,4 +1,4 @@
-# PA Helper V1.1 — Build Report
+# PA Helper V1.2.1 — Build Report
 
 Built 2026-09-03 on local branch `main`.
 
@@ -8,7 +8,7 @@ Built 2026-09-03 on local branch `main`.
 - Twelve short, normalized sound effects made from genuine recordings
 - Favorites, categories, master volume, persistent Stop All, and clear playing/progress state
 - Strict one-at-a-time playback with serialized click-prevention fades
-- First-tap audio unlock and quiet test chime
+- All sounds shown at launch; the first sound-pad tap activates phone audio and plays that cue without a separate unlock screen
 - Setup/readiness diagnostics, wired-first guidance, and whistle/buzzer warnings
 - Installable manifest and versioned offline app/audio caches
 - Local-only preferences; no accounts, analytics, microphone, or backend

@@ -38,7 +38,6 @@
           <span class="status-dot" id="statusDot"></span>
           <div><strong id="statusTitle">Preparing sounds</strong><span id="statusDetail">Checking the match-day pack…</span></div>
         </div>
-        <button class="status-action" id="enableAudio" type="button" hidden>Enable &amp; test</button>
       </section>
 
       <section class="control-deck" aria-label="Master audio controls">
@@ -55,7 +54,7 @@
       <nav class="category-tabs" id="categoryTabs" aria-label="Sound categories"></nav>
 
       <section class="board-heading">
-        <div><p class="section-kicker" id="sectionKicker">QUICK ACCESS</p><h2 id="sectionTitle">Favorites</h2></div>
+        <div><p class="section-kicker" id="sectionKicker">SOUND PACK</p><h2 id="sectionTitle">All sounds</h2></div>
         <span class="sound-count" id="soundCount"></span>
       </section>
       <section class="sound-grid" id="soundGrid" aria-label="Sound buttons"></section>
@@ -78,12 +77,12 @@
         <div class="settings-card-head"><div><span class="card-icon purple" aria-hidden="true">✓</span><h3>Sound readiness</h3></div><span class="readiness-pill" id="readinessPill">Checking</span></div>
         <dl class="diagnostics">
           <div><dt>Sound pack</dt><dd id="packDiagnostic">Checking…</dd></div>
-          <div><dt>Audio engine</dt><dd id="audioDiagnostic">Locked</dd></div>
+          <div><dt>Audio engine</dt><dd id="audioDiagnostic">Starts on first sound tap</dd></div>
           <div><dt>Network</dt><dd id="networkDiagnostic">Checking…</dd></div>
           <div><dt>App version</dt><dd id="versionDiagnostic">—</dd></div>
         </dl>
         <div class="settings-actions">
-          <button class="primary-action" id="settingsTest" type="button">Enable &amp; test sound</button>
+          <button class="primary-action" id="settingsTest" type="button">Test output</button>
           <button class="secondary-action" id="reloadPack" type="button">Reload sound pack</button>
         </div>
       </section>
@@ -93,7 +92,7 @@
         <ol class="setup-list">
           <li><span>1</span><div><strong>Connect the phone</strong><p>Use a wired adapter or audio interface when possible. Bluetooth is fine for non-timing-critical cues.</p></div></li>
           <li><span>2</span><div><strong>Start low</strong><p>Set the mixer input low, phone hardware volume around 70%, then raise carefully.</p></div></li>
-          <li><span>3</span><div><strong>Run the test</strong><p>Tap the test above and confirm the sound comes from the PA—not the phone speaker.</p></div></li>
+          <li><span>3</span><div><strong>Run the test</strong><p>Tap Test output above and confirm the sound comes from the PA—not the phone speaker.</p></div></li>
         </ol>
         <p class="warning-note"><strong>Whistle and buzzer:</strong> use only when venue staff approves them. They can be confused with official signals.</p>
       </section>
@@ -112,11 +111,7 @@
 
       <section class="settings-card credits-card">
         <div class="settings-card-head"><div><span class="card-icon" aria-hidden="true">i</span><h3>Audio credits</h3></div></div>
-        <p>Ten effects were created for PA Helper and released under CC0. Crowd recordings:</p>
-        <ul>
-          <li><a href="https://commons.wikimedia.org/wiki/File:Sound_Effects_-_Applause_after_a_concert.ogg" target="_blank" rel="noreferrer">Applause after a concert</a> by Amada44 — CC0 1.0; edited.</li>
-          <li><a href="https://commons.wikimedia.org/wiki/File:Clapping_hurray.ogg" target="_blank" rel="noreferrer">Clapping hurray</a> by starlite — public domain; edited.</li>
-        </ul>
+        <p>All twelve cues use documented CC0 recordings of real horns, bells, whistles, crowds, voices, and musical instruments.</p>
         <p><a href="THIRD_PARTY_NOTICES.md" target="_blank">Full license notices</a></p>
       </section>
     </section>

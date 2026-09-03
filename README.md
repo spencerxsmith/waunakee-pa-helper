@@ -8,7 +8,7 @@ A fast, mobile-first, offline-ready soccer soundboard for the Waunakee public-ad
 - Strict one-sound-at-a-time playback
 - Persistent Stop All and master volume controls
 - Local favorites
-- Explicit first-tap audio enable/test workflow
+- No separate unlock step: the first sound-pad tap activates audio and plays that cue
 - Full sound-pack preloading and offline service-worker cache
 - Install guidance for iOS and Chromium browsers
 - No accounts, analytics, microphone, uploads, or backend
