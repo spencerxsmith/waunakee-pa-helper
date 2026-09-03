@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#180b2b">
+  <meta name="description" content="Fast, offline-ready match-day soundboard for the Waunakee soccer PA booth.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="PA Helper">
+  <meta property="og:title" content="Waunakee PA Helper">
+  <meta property="og:description" content="A fast, offline-ready soccer soundboard.">
+  <meta property="og:type" content="website">
+  <title>Waunakee PA Helper</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <div class="brand-lockup">
+        <div class="brand-mark" aria-hidden="true"><span>W</span><i></i></div>
+        <div>
+          <p class="eyebrow">WAUNAKEE SOCCER</p>
+          <h1>PA Helper</h1>
+        </div>
+      </div>
+      <button class="icon-button" id="openSettings" type="button" aria-label="Open setup and settings">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.83 2.83-.06-.06a1.7 1.7 0 0 0-1.88-.34 1.7 1.7 0 0 0-1.03 1.56V21h-4v-.08a1.7 1.7 0 0 0-1.03-1.56 1.7 1.7 0 0 0-1.88.34l-.06.06-2.83-2.83.06-.06A1.7 1.7 0 0 0 4.6 15 1.7 1.7 0 0 0 3.08 14H3v-4h.08A1.7 1.7 0 0 0 4.6 9a1.7 1.7 0 0 0-.34-1.88l-.06-.06 2.83-2.83.06.06A1.7 1.7 0 0 0 8.97 4.6 1.7 1.7 0 0 0 10 3.08V3h4v.08A1.7 1.7 0 0 0 15.03 4.6a1.7 1.7 0 0 0 1.88-.34l.06-.06 2.83 2.83-.06.06A1.7 1.7 0 0 0 19.4 9 1.7 1.7 0 0 0 20.92 10H21v4h-.08A1.7 1.7 0 0 0 19.4 15Z"/></svg>
+      </button>
+    </header>
+
+    <main id="soundboardView">
+      <section class="status-panel" aria-label="Soundboard status">
+        <div class="status-copy">
+          <span class="status-dot" id="statusDot"></span>
+          <div><strong id="statusTitle">Preparing sounds</strong><span id="statusDetail">Checking the match-day pack…</span></div>
+        </div>
+        <button class="status-action" id="enableAudio" type="button" hidden>Enable &amp; test</button>
+      </section>
+
+      <section class="control-deck" aria-label="Master audio controls">
+        <div class="volume-control">
+          <label for="masterVolume"><span>Master</span><output id="volumeValue" for="masterVolume">70%</output></label>
+          <input id="masterVolume" type="range" min="0" max="100" value="70" step="1" aria-label="Master volume">
+        </div>
+        <button class="stop-button" id="stopAll" type="button">
+          <span class="stop-square" aria-hidden="true"></span>
+          <span>STOP ALL</span>
+        </button>
+      </section>
+
+      <nav class="category-tabs" id="categoryTabs" aria-label="Sound categories"></nav>
+
+      <section class="board-heading">
+        <div><p class="section-kicker" id="sectionKicker">QUICK ACCESS</p><h2 id="sectionTitle">Favorites</h2></div>
+        <span class="sound-count" id="soundCount"></span>
+      </section>
+      <section class="sound-grid" id="soundGrid" aria-label="Sound buttons"></section>
+      <div class="empty-state" id="emptyState" hidden>
+        <span aria-hidden="true">☆</span>
+        <h2>No favorites yet</h2>
+        <p>Open All sounds and tap a star to keep a sound here.</p>
+      </div>
+    </main>
+
+    <section class="settings-view" id="settingsView" hidden aria-labelledby="settingsTitle">
+      <div class="view-header">
+        <button class="back-button" id="closeSettings" type="button" aria-label="Back to soundboard">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+        <div><p class="eyebrow">MATCH-DAY CHECK</p><h2 id="settingsTitle">Setup &amp; settings</h2></div>
+      </div>
+
+      <section class="settings-card readiness-card">
+        <div class="settings-card-head"><div><span class="card-icon purple" aria-hidden="true">✓</span><h3>Sound readiness</h3></div><span class="readiness-pill" id="readinessPill">Checking</span></div>
+        <dl class="diagnostics">
+          <div><dt>Sound pack</dt><dd id="packDiagnostic">Checking…</dd></div>
+          <div><dt>Audio engine</dt><dd id="audioDiagnostic">Locked</dd></div>
+          <div><dt>Network</dt><dd id="networkDiagnostic">Checking…</dd></div>
+          <div><dt>App version</dt><dd id="versionDiagnostic">—</dd></div>
+        </dl>
+        <div class="settings-actions">
+          <button class="primary-action" id="settingsTest" type="button">Enable &amp; test sound</button>
+          <button class="secondary-action" id="reloadPack" type="button">Reload sound pack</button>
+        </div>
+      </section>
+
+      <section class="settings-card">
+        <div class="settings-card-head"><div><span class="card-icon" aria-hidden="true">↗</span><h3>Connect to the PA</h3></div></div>
+        <ol class="setup-list">
+          <li><span>1</span><div><strong>Connect the phone</strong><p>Use a wired adapter or audio interface when possible. Bluetooth is fine for non-timing-critical cues.</p></div></li>
+          <li><span>2</span><div><strong>Start low</strong><p>Set the mixer input low, phone hardware volume around 70%, then raise carefully.</p></div></li>
+          <li><span>3</span><div><strong>Run the test</strong><p>Tap the test above and confirm the sound comes from the PA—not the phone speaker.</p></div></li>
+        </ol>
+        <p class="warning-note"><strong>Whistle and buzzer:</strong> use only when venue staff approves them. They can be confused with official signals.</p>
+      </section>
+
+      <section class="settings-card">
+        <div class="settings-card-head"><div><span class="card-icon" aria-hidden="true">⚙</span><h3>Preferences</h3></div></div>
+        <label class="toggle-row"><span><strong>Gentle haptics</strong><small>Short vibration on supported Android devices</small></span><input id="hapticsToggle" type="checkbox" checked><i aria-hidden="true"></i></label>
+        <p class="preference-note">Playback is intentionally one sound at a time. Starting a new sound stops the current one.</p>
+      </section>
+
+      <section class="settings-card install-card" id="installCard">
+        <div class="settings-card-head"><div><span class="card-icon" aria-hidden="true">↓</span><h3>Install PA Helper</h3></div></div>
+        <p id="installCopy">Install this app to keep it one tap away and use the prepared sound pack offline.</p>
+        <button class="secondary-action full" id="installButton" type="button">Install app</button>
+      </section>
+
+      <section class="settings-card credits-card">
+        <div class="settings-card-head"><div><span class="card-icon" aria-hidden="true">i</span><h3>Audio credits</h3></div></div>
+        <p>Ten effects were created for PA Helper and released under CC0. Crowd recordings:</p>
+        <ul>
+          <li><a href="https://commons.wikimedia.org/wiki/File:Sound_Effects_-_Applause_after_a_concert.ogg" target="_blank" rel="noreferrer">Applause after a concert</a> by Amada44 — CC0 1.0; edited.</li>
+          <li><a href="https://commons.wikimedia.org/wiki/File:Clapping_hurray.ogg" target="_blank" rel="noreferrer">Clapping hurray</a> by starlite — public domain; edited.</li>
+        </ul>
+        <p><a href="THIRD_PARTY_NOTICES.md" target="_blank">Full license notices</a></p>
+      </section>
+    </section>
+  </div>
+
+  <aside class="now-playing" id="nowPlaying" hidden aria-live="polite">
+    <button id="nowPlayingStop" type="button" aria-label="Stop current sound"><span class="mini-stop" aria-hidden="true"></span></button>
+    <div><span>NOW PLAYING</span><strong id="nowPlayingName">Goal Horn</strong><div class="progress-track"><i id="progressBar"></i></div></div>
+    <time id="timeRemaining">0:00</time>
+  </aside>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

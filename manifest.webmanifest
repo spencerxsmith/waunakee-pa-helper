@@ -1,0 +1,18 @@
+{
+  "id": "/",
+  "name": "Waunakee PA Helper",
+  "short_name": "PA Helper",
+  "description": "Fast, offline-ready match-day soundboard for the Waunakee soccer PA booth.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#07080c",
+  "theme_color": "#180b2b",
+  "categories": ["sports", "utilities"],
+  "icons": [
+    {"src":"icons/icon-192.png","sizes":"192x192","type":"image/png","purpose":"any maskable"},
+    {"src":"icons/icon-512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"},
+    {"src":"icons/icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any"}
+  ]
+}
